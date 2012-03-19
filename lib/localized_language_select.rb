@@ -103,9 +103,9 @@ module ActionView
         value = value(object)
         content_tag("select",
           add_options(
-            localized_language_options_for_select(value, priority_languages, options),
+            localized_language_options_for_select(value, priority_languages, options).html_safe,
             options, value
-          ).html_safe, html_options
+          ), html_options
         )
       end
     end
