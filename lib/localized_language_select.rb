@@ -76,7 +76,7 @@ module ActionView
       # TODO : Implement pseudo-named args with a hash, not the "somebody said PHP?" multiple args sillines
       def localized_language_select_tag(name, selected_value = nil, priority_languages = nil, html_options = {})
         content_tag :select,
-                    localized_language_options_for_select(selected_value, priority_languages),
+                    localized_language_options_for_select(selected_value, priority_languages).html_safe,
                     { "name" => name, "id" => name }.update(html_options.stringify_keys)
       end
       alias_method :language_select_tag, :localized_language_select_tag
@@ -105,7 +105,7 @@ module ActionView
           add_options(
             localized_language_options_for_select(value, priority_languages, options),
             options, value
-          ), html_options
+          ).html_safe, html_options
         )
       end
     end
