@@ -116,6 +116,27 @@ Formtastic example:
 <% end %>  
 </pre>
 
+h2. Formbuilder configuration
+
+* ActionView
+* Formtastic
+* Simpleform (please!)
+
+h3. ActionView
+
+<pre>
+require 'localized_language/action_views_select'
+</pre>
+
+h3. Formtastic
+
+Will auto detect formtastic major version and load the appropriate select helper. 
+Should work with Formtastic 2.0
+
+<pre>
+require 'localized_language/formtastic_select'
+</pre>
+
 h2. Copyright
 
 Copyright (c) 2009 David Cato, released under the MIT license
