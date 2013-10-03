@@ -8,7 +8,7 @@ module ActionView
       # Language codes listed as an array of symbols in +priority_languages+ argument will be listed first
       # TODO : Implement pseudo-named args with a hash, not the "somebody said PHP?" multiple args sillines
       def localized_language_select(object, method, priority_languages = nil, options = {}, html_options = {})
-        InstanceTag.new(object, method, self, options.delete(:object)).
+        CountrySelect.new(object, method, self, options).
           to_localized_language_select_tag(priority_languages, options, html_options)
       end
       alias_method :language_select, :localized_language_select
@@ -39,7 +39,7 @@ module ActionView
 
     end
 
-    class InstanceTag
+    class CountrySelect < Tags::Base
       def to_localized_language_select_tag(priority_languages, options, html_options)
         html_options = html_options.stringify_keys
         add_default_name_and_id(html_options)

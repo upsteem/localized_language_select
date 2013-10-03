@@ -54,3 +54,4 @@ module LocalizedLanguageSelect
     end
   end
 end
+require "localized_language/action_view_select"
