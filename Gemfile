@@ -10,6 +10,7 @@ gem "rails", ">= 2.3.5"
 group :development do
   gem "bundler"
   gem "jeweler"
+  gem "test-unit"
   # gem "rspec", ">= 2.3.0"
   # gem "rcov", ">= 0"
 end
