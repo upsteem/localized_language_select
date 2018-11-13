@@ -13,29 +13,28 @@ require 'i18n'
 require 'localized_language_select'
 
 class LocalizedLanguageSelectTest < Test::Unit::TestCase
-
   include ActionView::Helpers::FormOptionsHelper
   include ActionView::Helpers::TagHelper
 
   def test_action_view_should_include_helper_for_object
-    assert ActionView::Helpers::FormBuilder.instance_methods.include?('localized_language_select')
-    assert ActionView::Helpers::FormOptionsHelper.instance_methods.include?('localized_language_select')
+    assert ActionView::Helpers::FormBuilder.instance_methods.include?(:localized_language_select)
+    assert ActionView::Helpers::FormOptionsHelper.instance_methods.include?(:localized_language_select)
   end
 
   def test_action_view_should_include_helper_tag
-    assert ActionView::Helpers::FormOptionsHelper.instance_methods.include?('localized_language_select_tag')
+    assert ActionView::Helpers::FormOptionsHelper.instance_methods.include?(:localized_language_select_tag)
   end
 
   def test_should_return_select_tag_with_proper_name_for_object
     assert localized_language_select(:user, :language) =~
-              Regexp.new(Regexp.escape('<select id="user_language" name="user[language]">')),
+              Regexp.new(Regexp.escape('<select name="user[language]" id="user_language">')),
               "Should have proper name for object"
   end
 
   def test_should_return_select_tag_with_proper_name
-    assert localized_language_select_tag( "competition_submission[data][language]", nil) =~
+    assert localized_language_select_tag("competition_submission[data][language]", nil) =~
               Regexp.new(
-              Regexp.escape('<select id="competition_submission[data][language]" name="competition_submission[data][language]">') ),
+              Regexp.escape('<select name="competition_submission[data][language]" id="competition_submission[data][language]">') ),
               "Should have proper name"
   end
 
@@ -107,5 +106,4 @@ class LocalizedLanguageSelectTest < Test::Unit::TestCase
     end
     I18n.locale = 'en'
   end
-
 end
